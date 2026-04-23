@@ -7,7 +7,7 @@ namespace MeinTilemapDrawer;
 class Program{
     static void Main(string[] args){
         Console.WriteLine("Hello, World!");
-        Raylib.InitWindow(800,600,"Tilemaps! :D");
+        Raylib.InitWindow(640,480,"Tilemaps! :D");
         while (!Raylib.WindowShouldClose()){
             Raylib.BeginDrawing();
             Raylib.EndDrawing();
