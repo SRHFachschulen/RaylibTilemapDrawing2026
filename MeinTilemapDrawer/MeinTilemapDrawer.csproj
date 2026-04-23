@@ -12,4 +12,13 @@
       <PackageReference Include="Raylib-cs" Version="7.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="ldtk\project\Level_0.ldtkl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ldtk\tilemap_packed.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
