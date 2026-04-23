@@ -32,6 +32,10 @@ class Program{
                     //Iteriere durch AutoLayerTiles
                     level.LayerInstances[iL].AutoLayerTiles[iT].Draw(Tileset, TileSize);
                 }
+                for (int iT = 0; iT < level.LayerInstances[iL].GridTiles.Count; iT++){
+                    //Iteriere durch GridTiles
+                    level.LayerInstances[iL].GridTiles[iT].Draw(Tileset, TileSize);
+                }
             }
 
             Raylib.EndDrawing();
