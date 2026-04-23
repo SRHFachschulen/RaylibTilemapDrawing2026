@@ -1,4 +1,4 @@
-﻿
+﻿using System.Numerics;
 using Raylib_cs;
 
 namespace MeinTilemapDrawer;
@@ -6,7 +6,9 @@ namespace MeinTilemapDrawer;
 class Program{
     static void Main(string[] args){
         Console.WriteLine("Hello, World!");
-        Raylib.InitWindow(640,480,"Tilemaps! :D");
+        Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.UndecoratedWindow);
+        Raylib.InitWindow(640, 480, "Tilemaps! :D");
+        int und = 155 & 244;
 
         // Ladebildschirm zum Spaß
         Raylib.BeginDrawing();
@@ -23,20 +25,18 @@ class Program{
         while (!Raylib.WindowShouldClose()){
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);
-            for (int iL = level.LayerInstances.Count - 1; iL >= 0; iL--){ 
+            for (int iL = level.LayerInstances.Count - 1; iL >= 0; iL--){
                 // Iteriere rückwärts durch Layer
-                int TileSize =(int)level.LayerInstances[iL].CWid;
-                for (int iT = 0; iT < level.LayerInstances[iL].AutoLayerTiles.Count; iT++){ 
+                int TileSize = (int)level.LayerInstances[iL].GridSize;
+                for (int iT = 0; iT < level.LayerInstances[iL].AutoLayerTiles.Count; iT++){
                     //Iteriere durch AutoLayerTiles
-                    var Tile = level.LayerInstances[iL].AutoLayerTiles[iT];
-                    Rectangle src = new(Tile.Src[0], Tile.Src[1], TileSize, TileSize);
-                    Rectangle dst = new(Tile.Px[0], Tile.Px[1], TileSize, TileSize);
-                    
-                    
+                    level.LayerInstances[iL].AutoLayerTiles[iT].Draw(Tileset, TileSize);
                 }
             }
+
             Raylib.EndDrawing();
         }
+
         Raylib.CloseWindow();
     }
 }
